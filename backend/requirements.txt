@@ -1,7 +1,7 @@
 asgiref==3.5.2
 astroid==2.11.6
 dill==0.3.5.1
-Django==4.0.5
+Django==4.1
 django-cleanup==6.0.0
 django-cors-headers==3.13.0
 djangorestframework==3.13.1
