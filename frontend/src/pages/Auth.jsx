@@ -18,17 +18,16 @@ const Auth = observer (() => {
         try {
             let data;
             if (isLogin) {
-                data = await login(email, password);
+                data = await login(email, password);                              
             } else {
-                data = await registration(email, password);            
+                data = await registration(email, password);                           
             }
             user.setUser(user)
-            user.setIsAuth(true)
-            history(SHOP_ROUTE)  
+            user.setIsAuth(true)       
+            history(SHOP_ROUTE)                          
         } catch (e) {
             alert(e.response.data.message)
-        }
-             
+        }          
     }
 
     return (
@@ -37,39 +36,39 @@ const Auth = observer (() => {
             style={{ height: window.innerHeight = 700 }}
         >
             <Card style={{ width: 600 }} className="p-5">
-                <h2 className="m-auto">{isLogin ? 'Autorization' : 'Registration'}</h2>
+                <h2 className="m-auto pb-3">{isLogin ? 'Авторизация' : 'Регистрация'}</h2>
                 <Form className="d-flex flex-column">
                     <Form.Control
                         className="mt-2"
-                        placeholder="Введите ваш е-мэйл..."
+                        placeholder="Введите Bаш E-mail"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                     />
                     <Form.Control
                         className="mt-2"
-                        placeholder="Введите ваш parol"
+                        placeholder="Введите Bаш Password"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
                         type="password"
                     />
                     <Row className="d-flex justify-content-between mt-3 pl-3 pr-3">
                         {isLogin ?
-                            <div>
-                                нет аккаунта? <Nav.Link as={Link} to={REGISTRATION_ROUTE}> зарегайся чепушЬ! </Nav.Link>
+                            <div>                               
+                                Нет аккаунта? <Nav.Link style={{ display: "inline" }} as={Link} to={REGISTRATION_ROUTE}>Зарегистрируйтесь!</Nav.Link>
                             </div>
                             :
                             <div>
-                                есть аккаунт? <Nav.Link as={Link} to={LOGIN_ROUTE}> войдите </Nav.Link>
+                                Есть аккаунт? <Nav.Link style={{ display: "inline" }} as={Link} to={LOGIN_ROUTE}>Авторизуйтесь!</Nav.Link>
                             </div>
                         }
 
                         <Button
                             className="mt-3 align-self-end"
                             variant={"outline-success"}
-                            onClick={click}
+                            onClick={click}                                                    
                         >
-                            {isLogin ? 'войти' : 'регистрация'}
-                        </Button>
+                            {isLogin ? 'Войти' : 'Зарегистрироваться'}
+                        </Button>                       
                     </Row>
 
                 </Form>
